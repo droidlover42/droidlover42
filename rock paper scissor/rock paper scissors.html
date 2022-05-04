@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Rock, Paper, Scissors</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body style="background-color: white;">
+    <script>
+      export const selectWinner = (user1, user2) => {
+  const choices = ["earth", "snow", "fire"]; // ["rock", "paper", "scissors"]
+  const x = choices.indexOf(user1.choice);
+  const y = choices.indexOf(user2.choice);
+  if (x == y) {
+    return null;
+  }
+  if (mod(x - y, choices.length) < choices.length / 2) {
+    return user1;
+  } else {
+    return user2;
+  }
+};
+
+function mod(a, b) {
+  const c = a % b;
+  return c < 0 ? c + b : c;
+}
+      
+      
