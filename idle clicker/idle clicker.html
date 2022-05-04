@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
+
   <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
   </head>
   
   <body>
     <div class="EverythingElse">
       <div style="position: absolute; left: 10px; top: 70px;">
-        <button id="close" class="closing"><img src="mouse.png"/></button>
+        <button id="close" class="closing"><img src="http://www.iconarchive.com/download/i98323/dakirby309/simply-styled/Internet-Explorer.ico" width="125" height="125"/></button>
       </div>
       Clicks:
-      <span id="click">
+      <span id="internet">
     0
   </span>
       <br> CPS:
@@ -34,26 +35,26 @@
       0
     </span>
         <br>
-        <br> Auto Clicker:
+        <br> Auto Clicker Cost:
         <span id="devcost">
       100
     </span>
         <br>
         <button id="devbuyer" class="closing">
-      Buy Auto Clicker
+      Buy Developer
     </button>
         <span id="devs">
       0
     </span>
     <br>
     <br> 
-     Click Factory: 
+     Click Factory Cost: 
      <span id="bitcost">
        900
      </span>
      <br>
      <button id="bitbuyer">
-        Click Factory
+        Buy Click Factory
       </button>
       <span id="bits">
         0
@@ -96,7 +97,7 @@ div {
 
     </style>
     <script>
-    var clicks = 0;
+    var internets = 0;
 var clickers = 0;
 var Clickcost = 15
 var newClicker = false;
@@ -111,7 +112,7 @@ var cas = 100
 var det = 0
 
 setInterval(() => {
-  clicksupd();
+  internetupd();
   clickerupd();
   moneyupdate();
   devupd();
@@ -121,21 +122,21 @@ setInterval(() => {
   bitmoney();
 
   if (newClicker == true) {
-    clicks = clicks - Clickcost
+    internets = internets - Clickcost
     clickers = clickers + 1;
     Clickcost = Math.floor(Clickcost + (15 / 100 * Clickcost));
     newClicker = false;
   }
 
   if (newDev == true) {
-    clicks = clicks - devcost
+    internets = internets - devcost
     devs = devs + 1;
     devcost = Math.floor(devcost + (15 / 100 * devcost));
     newDev = false;
   }
   
   if (newbit == true) {
-    clicks = clicks - bitcost
+    internets = internets - bitcost
     bits = bits + 1;
     bitcost = Math.floor(bitcost + (15 / 100 * bitcost));
     newbit = false;
@@ -143,21 +144,21 @@ setInterval(() => {
 }, 10);
 
 setInterval(() => {
-  clicks = clicks + clickers / cas + devs / 10 + bits * 8/10;
+  internets = internets + clickers / cas + devs / 10 + bits * 8/10;
   ips();
 }, 100);
 
 function internetupd() {
-  document.getElementById("clicks").innerHTML = Math.floor(clicks)
+  document.getElementById("internet").innerHTML = Math.floor(internets)
 }
 
 function clickerupd() {
   document.getElementById("clickers").innerHTML = clickers
 }
 
-document.getElementById("close").onclick = () => clicks = clicks + cac;
+document.getElementById("close").onclick = () => internets = internets + cac;
 
-document.getElementById("clickbuyer").onclick = () => (clicks >= Clickcost) ? newClicker = true : newClicker = false;
+document.getElementById("clickbuyer").onclick = () => (internets >= Clickcost) ? newClicker = true : newClicker = false;
 
 function moneyupdate() {
   document.getElementById("Clickcost").innerHTML = Clickcost
@@ -175,13 +176,13 @@ function devmoney() {
   document.getElementById("devcost").innerHTML = devcost
 }
 
-document.getElementById("devbuyer").onclick = () => (clicks >= devcost) ? newDev = true : newDev = false;
+document.getElementById("devbuyer").onclick = () => (internets >= devcost) ? newDev = true : newDev = false;
 
 document.getElementById("clickupgrade1").onclick = function() {
 
-  if (clicks >= 400) {
+  if (internets >= 400) {
     document.getElementById("clickupgrade1").disabled = true;
-    clicks = clicks - 400
+    internets = internets - 400
     cac = 2
     document.getElementById("clickupgrade1").style.visibility = "hidden"
   }
@@ -199,16 +200,16 @@ function lel() {
 
 
 document.getElementById("clickerupgrade1").onclick = function() {
-  if (clicks >= 600) {
+  if (internets >= 600) {
     document.getElementById("clickerupgrade1").disabled = true;
-    clicks = clicks - 600
+    internets = internets - 600
     cas = cas / 2
     det = 1
     document.getElementById("clickerupgrade1").style.visibility = "hidden"
   }
 }
 
-document.getElementById("bitbuyer").onclick = () => (clicks >= bitcost) ? newbit = true : newbit = false;
+document.getElementById("bitbuyer").onclick = () => (internets >= bitcost) ? newbit = true : newbit = false;
 
 function bitupd() {
   document.getElementById("bits").innerHTML = bits
