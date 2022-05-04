@@ -98,7 +98,8 @@ div {
 
     </style>
     <script>
-    var clicks = 0;
+var clicks = 0;
+var pointsGotOnclicksClick = 1;
 var clickers = 0;
 var Clickcost = 15
 var newClicker = false;
@@ -122,6 +123,10 @@ setInterval(() => {
   bitupd();
   bitmoney();
 
+  function onClickUpgrade1Click() {
+  if (clicksClickPoints >= add1ClickPoints) {
+    clicksClickPoints = carrotClickPoints - add1ClickPoints;
+  
   if (newClicker == true) {
     clicks = clicks - Clickcost
     clickers = clickers + 1;
