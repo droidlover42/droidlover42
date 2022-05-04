@@ -7,267 +7,85 @@
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body style="background-color: white;">
-    <script>
-      export const selectWinner = (user1, user2) => {
-  const choices = ["earth", "snow", "fire"]; // ["rock", "paper", "scissors"]
-  const x = choices.indexOf(user1.choice);
-  const y = choices.indexOf(user2.choice);
-  if (x == y) {
-    return null;
-  }
-  if (mod(x - y, choices.length) < choices.length / 2) {
-    return user1;
-  } else {
-    return user2;
-  }
-};
+   
+		<body>
+  <h1>Basic Rock Paper Scissors game with JavaScript</h1>
+  <button class="options">Rock</button>
+  <button class="options">Paper</button>
+  <button class="options">Scissors</button>
+  <script>
+    const options = document.querySelectorAll(".options");
 
-function mod(a, b) {
-  const c = a % b;
-  return c < 0 ? c + b : c;
-}
-      
-      const choices = ["rock", "paper", "scissors"];
+    options.forEach((option) => {
+      option.addEventListener("click", function () {
+        const pInput = this.textContent;
 
-      function compare(choice1, choice2) {
-  choice1 = choices.indexOf(choice1);
-  choice2 = choices.indexOf(choice2);
-  if (choice1 == choice2) {
-    return "Tie";
-  }
-  if (choice1 == choices.length - 1 && choice2 == 0) {
-    return "Right wins";
-  }
-  if (choice2 == choices.length - 1 && choice1 == 0) {
-    return "Left wins";
-  }
-  if (choice1 > choice2) {
-    return "Left wins";
-  } else {
-    return "Right wins";
-  }
-}
-      
-      export const selectWinner = (user1, user2) => {
-  let result = null;
+        const cOptions = ["Rock", "Paper", "Scissors"];
+        const cInput = cOptions[Math.floor(Math.random() * 3)];
 
-  if (user1.choice === user2.choice) {
-    result = null;
-  }
+        compareInputs(pInput, cInput);
+      });
+    });
 
-  if (user1.choice === "rock" && user2.choice === "scissors") {
-    result = user1;
-  }
+    function compareInputs(pInput, cInput) {
+      const currentMatch = `${pInput} vs ${cInput}`;
 
-  if (user1.choice === "scissors" && user2.choice === "paper") {
-    result = user1;
-  }
+      // Tie check
+      if (pInput === cInput) {
+        alert(`${currentMatch} is a Tie`);
+        return;
+      }
 
-  if (user1.choice === "paper" && user2.choice === "rock") {
-    result = user1;
-  }
-
-  if (user1.choice === "scissors" && user2.choice === "rock") {
-    result = user2;
-  }
-
-  if (user1.choice === "paper" && user2.choice === "scissors") {
-    result = user2;
-  }
-
-  if (user1.choice === "rock" && user2.choice === "paper") {
-    result = user2;
-  }
-
-  return result;
-};
-      
-      if (user1.choice === "rock" && user2.choice === "scissors") {
-  result = user1;
-}
-      
-      function ifVal(a, b, winner) {
-  if (user1.choice === a && user2.choice === b) {
-    result = winner;
-  }
-}
-
-ifVal("rock", "scissors", user1);
-ifVal("scissors", "rock", user2);
-      
-      function ifVal(a, b, winner) {
-  if (user1.choice === a && user2.choice === b) {
-    result = winner;
-  }
-}
-
-ifVal("rock", "scissors", user1);
-ifVal("scissors", "rock", user2);
-      
-      export const selectWinner = (user1, user2) => {
-  let result = null;
-
-  switch (user1.choice + user2.choice) {
-    case "rockscissors":
-    case "scissorspaper":
-    case "paperrock":
-      result = user1;
-      break;
-    case "scissorsrock":
-    case "paperscissors":
-    case "rockpaper":
-      result = user2;
-      break;
-    case "paperpaper":
-    case "scissorsscissors":
-    case "rockrock":
-      result = null;
-      break;
-  }
-  return result;
-};
-      
-      const isFunction = function isFunction(check) {
-  return check && {}.toString.call(check) === "[object Function]";
-};
-
-const matched = (x) => ({
-  on: () => matched(x),
-  otherwise: () => x,
-});
-
-const match = (x) => ({
-  on: (pred, fn) =>
-    (isFunction(pred) ? pred(x) : pred === x) ? matched(fn(x)) : match(x),
-  otherwise: (fn) => fn(x),
-});
-      
-      export const selectWinner = (user1, user2) => {
-  return match({
-    user1,
-    user2,
-  })
-    .on(
-      ({ user1, user2 }) => user1.choice == user2.choice,
-      () => null
-    )
-    .on(
-      ({ user1, user2 }) =>
-        user1.choice == "rock" && user2.choice == "scissors",
-      () => user1
-    )
-    .on(
-      ({ user1, user2 }) =>
-        user1.choice == "scissors" && user2.choice == "paper",
-      () => user1
-    )
-    .on(
-      ({ user1, user2 }) => user1.choice == "paper" && user2.choice == "rock",
-      () => user1
-    )
-    .otherwise(() => user2);
-};
-      function referee() {
-  const learn = () => {};
-  const judge = () => {};
-
-  return { learn, judge };
-}
-      
-      function referee() {
-  const training = {};
-
-  const learn = (winner, loser) => {
-    if (!choice in training) {
-      training[winner] = {};
+      // Rock
+      if (pInput === "Rock") {
+        if (cInput === "Scissors") {
+          alert(`${currentMatch} = You Win`);
+        } else {
+          alert(`${currentMatch} = Computer Wins`);
+        }
+      }
+      // Paper
+      else if (pInput === "Paper") {
+        if (cInput === "Rock") {
+          alert(`${currentMatch} = You Win`);
+        } else {
+          alert(`${currentMatch} = Computer Wins`);
+        }
+      }
+      // Scissors
+      else if (pInput === "Scissors") {
+        if (cInput === "Paper") {
+          alert(`${currentMatch} = You Win`);
+        } else {
+          alert(`${currentMatch} = Computer Wins`);
+        }
+      }
     }
-    training[winner][loser] = 1;
-  };
-
-  const judge = () => {};
-
-  return { learn, judge };
-}
-      
-      const training = {
-  rock: {
-    scissors: 1,
-  },
-  paper: {
-    rock: 1,
-  },
-  scissors: {
-    paper: 1,
-  },
-};
-      
-      const judge = (user1, user2) => {
-  return user1.choice === user2.choice
-    ? null
-    : training[user1.choice][user2.choice] === 1
-    ? user1
-    : user2;
-};
-      
-      function referee() {
-  const training = {};
-
-  const isValidAction = (choice) => choice in training;
-
-  const learn = (winner, loser) => {
-    if (!isValidAction(winner)) {
-      training[winner] = {};
-    }
-    training[winner][loser] = 1;
-  };
-
-  const judge = (user1, user2) => {
-    return user1.choice === user2.choice
-      ? null
-      : training[user1.choice][user2.choice] === 1
-      ? user1
-      : user2;
-  };
-
-  const getChoices = () => Object.keys(training);
-
-  return {
-    isValidAction,
-    learn,
-    judge,
-    getChoices,
-  };
-}
-      
-      export const selectWinner = (user1, user2) => {
-  const referee = new Referee();
-  referee.learn("rock", "scissors");
-  referee.learn("paper", "rock");
-  referee.learn("scissors", "paper");
-
-  return referee.judge(user1, user2);
-};
-      
-   class Referee {
-  rules = {};
-  constructor() {}
-
-  validate = (choice) => choice in this.rules;
-  getChoices = () => Object.keys(this.rules);
-  learn = (winner, loser) => {
-    if (!this.validate(winner)) {
-      this.rules[winner] = {};
-    }
-    this.rules[winner][loser] = 1;
-  };
-
-  judge(user1, user2) {
-    return user1.choice === user2.choice
-      ? null
-      : this.rules[user1.choice][user2.choice] === 1
-      ? user1
-      : user2;
-  }
-}
-  </scrpit>
-</html>
+  </script>
+</body>
+		
+		<body>
+  <div class="container">
+    <h1>The Rock Paper Scissors Game</h1>
+    <h2>Win five rounds to be the victor</h2>
+    <h2>
+      Player <span id="p-score">0</span> - <span id="c-score">0</span> Computer
+    </h2>
+    <div class="display-moves">
+      <div class="move">
+        <img id="p-move" src="./assets/Rock.svg">
+      </div>
+      <div class="separator">VS</div>
+      <div class="move">
+        <img id="c-move" src="./assets/Rock.svg">
+      </div>
+    </div>
+    <h2>Click on the image below to select your move:<h2>
+    <div class="action">
+      <input class="options" type="image" src="./assets/Rock.svg" value="Rock" />
+      <input class="options" type="image" src="./assets/Paper.svg" value="Paper" />
+      <input class="options" type="image" src="./assets/Scissors.svg" value="Scissors" />
+    </div>
+  </div>
+</body>
+		</html>
