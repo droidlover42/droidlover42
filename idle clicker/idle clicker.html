@@ -98,8 +98,7 @@ div {
 
     </style>
     <script>
-var clicks = 0;
-var pointGotOnclicks = 1;
+    var clicks = 0;
 var clickers = 0;
 var Clickcost = 15
 var newClicker = false;
@@ -114,7 +113,7 @@ var cas = 100
 var det = 0
 
 setInterval(() => {
-  clicksupd();
+  internetupd();
   clickerupd();
   moneyupdate();
   devupd();
@@ -123,10 +122,6 @@ setInterval(() => {
   bitupd();
   bitmoney();
 
-  function onClickUpgrade1Click() {
-  if (clicksClickPoints >= add1ClickPoints) {
-    clicksClickPoints = clicksClickPoints - add1ClickPoints;
-  
   if (newClicker == true) {
     clicks = clicks - Clickcost
     clickers = clickers + 1;
