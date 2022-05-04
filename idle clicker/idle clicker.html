@@ -123,14 +123,14 @@ setInterval(() => {
   bitmoney();
 
   if (newClicker == true) {
-    internets = internets - Clickcost
+    clicks = clicks - Clickcost
     clickers = clickers + 1;
     Clickcost = Math.floor(Clickcost + (15 / 100 * Clickcost));
     newClicker = false;
   }
 
   if (newDev == true) {
-    internets = internets - devcost
+    clicks = clicks - devcost
     devs = devs + 1;
     devcost = Math.floor(devcost + (15 / 100 * devcost));
     newDev = false;
