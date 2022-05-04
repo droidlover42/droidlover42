@@ -8,10 +8,10 @@
   <body>
     <div class="EverythingElse">
       <div style="position: absolute; left: 10px; top: 70px;">
-        <button id="close" class="closing"><img src="http://www.iconarchive.com/download/i98323/dakirby309/simply-styled/Internet-Explorer.ico" width="125" height="125"/></button>
+        <button id="close" class="closing"><img src="<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Mano_cursor.svg/1200px-Mano_cursor.svg.png" alt="File:Mano cursor.svg - Wikimedia Commons"/>" width="125" height="125"/></button>
       </div>
       Clicks:
-      <span id="Click">
+      <span id="click">
     0
   </span>
       <br> CPS:
@@ -96,7 +96,7 @@ div {
 
     </style>
     <script>
-    var internets = 0;
+    var clicks = 0;
 var clickers = 0;
 var Clickcost = 15
 var newClicker = false;
@@ -111,7 +111,7 @@ var cas = 100
 var det = 0
 
 setInterval(() => {
-  internetupd();
+  clicksupd();
   clickerupd();
   moneyupdate();
   devupd();
@@ -121,21 +121,21 @@ setInterval(() => {
   bitmoney();
 
   if (newClicker == true) {
-    internets = internets - Clickcost
+    clicks = clicks - Clickcost
     clickers = clickers + 1;
     Clickcost = Math.floor(Clickcost + (15 / 100 * Clickcost));
     newClicker = false;
   }
 
   if (newDev == true) {
-    internets = internets - devcost
+    clicks = clicks - devcost
     devs = devs + 1;
     devcost = Math.floor(devcost + (15 / 100 * devcost));
     newDev = false;
   }
   
   if (newbit == true) {
-    internets = internets - bitcost
+    clicks = clicks - bitcost
     bits = bits + 1;
     bitcost = Math.floor(bitcost + (15 / 100 * bitcost));
     newbit = false;
@@ -143,21 +143,21 @@ setInterval(() => {
 }, 10);
 
 setInterval(() => {
-  internets = internets + clickers / cas + devs / 10 + bits * 8/10;
+  clicks = clicks + clickers / cas + devs / 10 + bits * 8/10;
   ips();
 }, 100);
 
 function internetupd() {
-  document.getElementById("internet").innerHTML = Math.floor(internets)
+  document.getElementById("clicks").innerHTML = Math.floor(clicks)
 }
 
 function clickerupd() {
   document.getElementById("clickers").innerHTML = clickers
 }
 
-document.getElementById("close").onclick = () => internets = internets + cac;
+document.getElementById("close").onclick = () => clicks = clicks + cac;
 
-document.getElementById("clickbuyer").onclick = () => (internets >= Clickcost) ? newClicker = true : newClicker = false;
+document.getElementById("clickbuyer").onclick = () => (clicks >= Clickcost) ? newClicker = true : newClicker = false;
 
 function moneyupdate() {
   document.getElementById("Clickcost").innerHTML = Clickcost
@@ -175,13 +175,13 @@ function devmoney() {
   document.getElementById("devcost").innerHTML = devcost
 }
 
-document.getElementById("devbuyer").onclick = () => (internets >= devcost) ? newDev = true : newDev = false;
+document.getElementById("devbuyer").onclick = () => (clicks >= devcost) ? newDev = true : newDev = false;
 
 document.getElementById("clickupgrade1").onclick = function() {
 
-  if (internets >= 400) {
+  if (clicks >= 400) {
     document.getElementById("clickupgrade1").disabled = true;
-    internets = internets - 400
+    clicks = clicks - 400
     cac = 2
     document.getElementById("clickupgrade1").style.visibility = "hidden"
   }
@@ -199,16 +199,16 @@ function lel() {
 
 
 document.getElementById("clickerupgrade1").onclick = function() {
-  if (internets >= 600) {
+  if (clicks >= 600) {
     document.getElementById("clickerupgrade1").disabled = true;
-    internets = internets - 600
+    clicks = clicks - 600
     cas = cas / 2
     det = 1
     document.getElementById("clickerupgrade1").style.visibility = "hidden"
   }
 }
 
-document.getElementById("bitbuyer").onclick = () => (internets >= bitcost) ? newbit = true : newbit = false;
+document.getElementById("bitbuyer").onclick = () => (clicks >= bitcost) ? newbit = true : newbit = false;
 
 function bitupd() {
   document.getElementById("bits").innerHTML = bits
