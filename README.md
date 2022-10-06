@@ -1,5 +1,5 @@
 - 👋 Hi, I’m @droidlover42
-- 👀 I’m interested in coding mostly in java and python and adding java into html
+- 👀 I’m interested in coding mostly in javascript and python and adding javascript into html
 - 🌱 I’m currently learning in school
 - 💞️ I’m looking to collaborate on nothing at the moment
 - 📫 How to reach me connorpayment9@gmail.com or 952-495-7163
